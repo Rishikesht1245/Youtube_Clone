@@ -97,7 +97,7 @@ const Header = () => {
             type="text"
             className="bg-transparent outline-none text-white pr-5 pl-5 md:pl-0 w-44 md:group-focus-within:pl-0 md:w-64 lg:w-[500px]"
             onChange={(e) => setSearchQuery(e.target.value)}
-            onKeyUp={(event) => searchQueryHandler(event, "input")}
+            onKeyUp={(event) => searchQueryHandler(event, "input ")}
             value={searchQuery}
           />
           {/* search button */}
@@ -120,12 +120,12 @@ const Header = () => {
           <div className="flex items-center ml-2 justify-center h-10 w-10 rounded-full hover:bg-[#303030]/[0.6]">
             <FiBell className="text-white text-xl cursor-pointer" />
           </div>
-          <div className="flex h-8 w-8 overflow-hidden rounded-full md:ml-4">
-            <img
-              src="https://xsgames.co/randomusers/avatar.php?g=male"
-              alt="Profile Image"
-            />
-          </div>
+        </div>
+        <div className="flex h-8 w-8 overflow-hidden rounded-full md:ml-4">
+          <img
+            src="https://xsgames.co/randomusers/avatar.php?g=male"
+            alt="Profile Image"
+          />
         </div>
       </div>
       {/* =================== Right side section ends here ================== */}

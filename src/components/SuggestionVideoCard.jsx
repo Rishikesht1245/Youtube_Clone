@@ -5,9 +5,10 @@ import { Link } from "react-router-dom";
 
 import VideoLength from "../shared/VideoLength";
 
-const SuggestionVideoCard = () => {
+const SuggestionVideoCard = ({ video }) => {
   return (
     <Link to={`/video/${video?.videoId}`}>
+      {/* video cards */}
       <div className="flex mb-3">
         <div className="relative h-24 lg:h-20 xl:h-24 w-40 min-w-[168px] lg-w-32 lg:min-w-[128px] xl:w-40 xl:min-w-[168px] rounded-xl bg-slate-800 overflow-hidden">
           <img
@@ -27,7 +28,7 @@ const SuggestionVideoCard = () => {
               <BsFillCheckCircleFill className="tex-white/[0.5] text-[12px] lg:text-[10px] xl:text-[12px] ml-1" />
             )}
           </span>
-          <div className="flex text-[12px] lg:text-[10px] text-xl-[12px]  font-semibold text-white-[0.7] truncate overflow-hidden">
+          <div className="flex text-[12px] lg:text-[10px] text-xl-[12px]  font-semibold text-white/[0.7] truncate overflow-hidden">
             <span>{`${abbreviateNumber(video?.stats?.views, 2)} views`}</span>
             <span className="flex text-[24px] leading-none font-bold text-white/[0.7] relative top-[-10px] mx-1">
               .

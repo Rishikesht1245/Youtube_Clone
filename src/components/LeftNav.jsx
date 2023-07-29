@@ -11,6 +11,7 @@ const LeftNav = () => {
 
   const navigate = useNavigate();
 
+  // changing the categories based on user input and change in category will render fetch function
   const clickHandler = (name, item) => {
     switch (item) {
       case "category":
@@ -23,7 +24,13 @@ const LeftNav = () => {
   };
 
   return (
-    <div className="md:block w-[240px] overflow-y-auto h-full py-4 bg-black absolute md:relative z-10 translate-x-[-240px] md:translate-x-0 transition-all">
+    // left navigation bar , for mobiles display it as hand-burger icon and use translate property for displaying it on clicking
+    <div
+      className={`md:block w-[240px] overflow-y-auto h-full py-4 bg-black absolute md:relative z-10 translate-x-[-240px] md:translate-x-0 transition-all ${
+        mobileMenu ? "translate-x-0" : ""
+      }`}
+    >
+      {/* Categories and Menus */}
       <div className="flex px-5 flex-col">
         {categories.map((item) => {
           return (

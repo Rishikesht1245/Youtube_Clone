@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import ReactPlayer from "react-player";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 import { AiOutlineLike } from "react-icons/ai";
+import { BsFillEyeFill } from "react-icons/bs";
 import { abbreviateNumber } from "js-abbreviation-number";
 
 import { fetchDataFromApi } from "../utils/api";
@@ -40,15 +41,16 @@ const VideoDetails = () => {
   const fetchRelatedVideos = () => {
     setLoading(true);
     fetchDataFromApi(`video/related-contents/?id=${id}`).then((res) => {
-      console.log(res);
-      setVideo(res);
+      setRelatedVideos(res);
       setLoading(false);
     });
   };
 
   return (
+    //video and related videos
     <div className="flex justify-center flex-row h-[calc(100%-56px)] bg-black">
       <div className="w-full max-w-[1280px] flex flex-col lg:flex-row">
+        {/* Video and it's details flex-col */}
         <div className="flex flex-col lg:w-[calc(100%-350px)] xl:w-[calc(100%-400px)] px-4 py-3 lg:py-6 overflow-y-auto">
           <div className="h-[200px] md:h-[400px] lg:h-[400px] xl:h-[550px] ml-[-16px] lg:ml-0 mr-[-16px] lg:mr-0">
             <ReactPlayer
@@ -60,10 +62,10 @@ const VideoDetails = () => {
               playing={true}
             />
           </div>
-          <div className="text-white font-bold text-sm md:text-xl mt-4 line-clamp-2">
+          <div className="text-white font-bold text-sm md:text-xl mt-4 line-clamp-2 lg:min-h-[30px]">
             {video?.title}
           </div>
-          <div className="flex justify-between flex-col md:flex-row mt-4 lg:mt-[50px]">
+          <div className="flex justify-between flex-col md:flex-row mt-3">
             <div className="flex">
               <div className="flex items-start">
                 <div className="flex h-11 w-11 rounded-full overflow-hidden">
@@ -87,6 +89,7 @@ const VideoDetails = () => {
               </div>
             </div>
 
+            {/* views and likes buttons */}
             <div className="flex text-white mt-4 md:mt-0">
               <div className="flex items-center justify-center h-11 px-6 rounded-3xl bg-white/[0.15]">
                 <AiOutlineLike className="text-xl text-white mr-2" />
@@ -96,6 +99,7 @@ const VideoDetails = () => {
                 )} Likes`}</span>
               </div>
               <div className="flex items-center justify-center h-11 px-6 rounded-3xl bg-white/[0.15]">
+                <BsFillEyeFill className="text-xl text-white mr-2" />
                 <span>{`${abbreviateNumber(
                   video?.stats?.views,
                   2
@@ -106,7 +110,7 @@ const VideoDetails = () => {
         </div>
 
         <div className="flex flex-col py-6 px-4 overflow-y-auto lg:w-[350px] xl:w-[400px]">
-          {relatedVideos.contents.map((item, index) => {
+          {relatedVideos?.contents?.map((item, index) => {
             if (item?.type !== "video") return false;
             return <SuggestionVideoCard key={index} video={item?.video} />;
           })}

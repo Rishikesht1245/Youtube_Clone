@@ -1,4 +1,4 @@
-﻿# LAP4YOU-eCommerce Project
+﻿# YouTube Clone Website
 
 A fully responsive YouTube-clone website build using React.js, Tailwind CSS, Rapid API and Axios.
 

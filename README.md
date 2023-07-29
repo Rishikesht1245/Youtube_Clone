@@ -6,12 +6,8 @@ A fully responsive YouTube-clone website build using React.js, Tailwind CSS, Rap
 
 ## Features
 
--Responsive Design:
--The website is fully responsive, providing a seamless experience across various devices and screen sizes.
-
--Search and Category wise Data Fetching:
-
-- Searching and Category wise Data Fetching is done with the help of Rapid API and Axios Library
+-Responsive Design
+-Search and Category wise Data Fetching
 
 ## Technologies and Third Party Modules Used
 

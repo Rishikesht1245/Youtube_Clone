@@ -2,7 +2,7 @@
 
 A fully responsive YouTube-clone website build using React.js, Tailwind CSS, Rapid API and Axios.
 
-***https://64c4b3a274848a413203a6c9--celebrated-cassata-22d2db.netlify.app/***
+***https://youtubeclone1245.netlify.app/***
 
 ## Features
 
